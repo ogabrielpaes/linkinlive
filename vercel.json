@@ -1,5 +1,4 @@
 {
-  "scripts": {
-    "build": "[my-framework] build --output public"
-  }
+  "buildCommand": "next build"
 }
+
