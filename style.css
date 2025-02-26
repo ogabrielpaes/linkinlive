@@ -365,12 +365,14 @@ header {
         width: 90%;
     }
 
+    /* Ajuste da classe .show, exemplo */
     .show {
-       
+        /* Adicionei um exemplo de estilo para .show */
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
     }
 }
 
-/* Rodapé (footer) */
 /* Estilo geral do rodapé */
 .footer-container {
     background-color: #1c1c1c;
