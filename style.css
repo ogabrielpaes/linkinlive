@@ -50,6 +50,7 @@ header {
     color: white;
     font-size: 1rem; 
 }
+
 /* Seção Home (Imagem de Fundo) */
 #home {
     position: relative;
@@ -78,7 +79,6 @@ header {
     transform: translateY(0);
 }
 
-
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
     header {
@@ -106,31 +106,6 @@ header {
     #home {
         height: 50vh; /* Reduz a altura da imagem para melhor ajuste */
     }
-}
-
-/* Sobreposição */
-.overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 10;
-    padding: 0 20px; /* Garante que o texto não fique colado nas bordas */
-}
-/* Opacidade e transição do título e parágrafo */
-.overlay h2,
-.overlay p {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Animação suave */
-}
-/* Para responsividade: ajustes em telas menores */
-@media (max-width: 768px) {
-    #home {
-        height: 50vh; /* Reduz a altura para telas menores */
-    }
 
     .overlay h2 {
         font-size: 1.5rem; /* Ajusta o tamanho da fonte do título */
@@ -141,6 +116,7 @@ header {
     }
 }
 
+/* Responsividade para telas muito pequenas */
 @media (max-width: 480px) {
     #home {
         height: 40vh; /* Ajuste ainda maior para telas pequenas */
@@ -155,18 +131,37 @@ header {
     }
 }
 
-/* Estilo para a seção 'Sobre a banda' */
+/* Sobreposição */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    padding: 0 20px; /* Garante que o texto não fique colado nas bordas */
+}
+
+/* Opacidade e transição do título e parágrafo */
+.overlay h2,
+.overlay p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animação suave */
+}
+
 #info-banda {
     padding: 50px 5%;
     background-color: var(--cor-fundo-banda);  /* Fundo escuro para manter a harmonia */
     text-align: center;
 }
 
-#info-banda  h2 {
+#info-banda h2 {
     font-size: 2rem;
     color: var(--cor-texto);  /* Cor do título */
     margin-bottom: 20px;
-    text-align: left;;  /* Margem à esquerda */
+    text-align: left;  /* Corrigido para remover ponto e vírgula extra */
     margin-right: 0;    /* Remove a margem direita */
     opacity: 0;
     transform: translateX(-50px);
@@ -186,6 +181,7 @@ header {
     margin: 0 auto;  /* Para centralizar o texto */
     text-align: justify;
 }
+
 /* Estilo para a seção de Integrantes */
 #integrantes {
     padding: 50px 5%;
@@ -232,6 +228,7 @@ header {
     transform: translateY(20px); /* Move um pouco para baixo inicialmente */
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 .integrante h3.fade-in {
     opacity: 1; /* Torna o nome visível */
     transform: translateY(0); /* Traz para o estado original */
@@ -356,20 +353,6 @@ header {
 .next {
     right: 10px;
 }
-.prev, .next {
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    z-index: 10;
-    outline: none; /* Remove outline padrão */
-}
-
-.prev:focus, .next:focus {
-    outline: 3px solid #f23225; /* Destaca os botões ao receber foco */
-}
 
 /* Efeito hover nos botões */
 .prev:hover, .next:hover {
@@ -383,108 +366,66 @@ header {
     }
 
     .show {
-        min-width: 250px;
-        height: 350px;
-    }
-
-    .prev, .next {
-        font-size: 1.5rem;
-        padding: 8px;
+       
     }
 }
 
-@media screen and (max-width: 480px) {
-    .show {
-        min-width: 220px;
-        height: 300px;
-    }
-
-    .prev, .next {
-        font-size: 1.2rem;
-        padding: 6px;
-    }
-}
-
-/* Estilização do Footer */
+/* Rodapé (footer) */
+/* Estilo geral do rodapé */
 .footer-container {
-    background: var(--cor-fundo-footer);
-    padding: 40px 0; /* Maior espaçamento para organização */
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 40px 0;
     text-align: center;
-    width: 100%;
 }
 
+/* Contêiner do rodapé */
 .wrapper-footer {
-    display: flex;
-    flex-direction: column; /* Itens empilhados */
-    align-items: center;
-    max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
-    padding: 0 15px;
-    box-sizing: border-box;
 }
 
-/* Estilização do texto animado */
+/* Animação de digitação */
 #typing-text {
-    font-size: 5vw;
-    color: var(--cor-texto);
-    margin-bottom: 20px;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    animation: typing 4s steps(30) infinite;
 }
 
-/* Responsividade para #typing-text */
-@media (max-width: 768px) {
-    #typing-text {
-        font-size: 25px;
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
     }
 }
 
-@media (max-width: 480px) {
-    #typing-text {
-        font-size: 20px;
-    }
-}
-
-/* Redes Sociais */
-.social-media {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-}
-
+/* Estilo para os links de redes sociais */
 .social-media a {
-    color: var(--cor-texto);
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    color: #fff;
+    font-size: 18px;
+    margin: 0 15px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .social-media a img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    vertical-align: middle;
 }
 
-.social-media a img:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0px 0px 8px #f23225);
-}
-
-@media (max-width: 480px) {
-    .social-media {
-        flex-direction: column; /* Exibe os ícones em coluna */
-        gap: 10px; /* Reduz o espaço entre os itens */
-    }
-}
-/* Espaço livre */
+/* Espaço livre entre as seções */
 .spacer {
-    height: 30px; /* Define um espaço entre as seções */
+    margin: 20px 0;
 }
 
-/* Informações do Desenvolvedor */
+/* Informações sobre o desenvolvedor */
 .desenvolvedor-info {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6); /* Torna menos evidente */
-    font-size: 14px;
+    margin-top: 30px;
 }
 
 .desenvolvedor-info p {
@@ -492,44 +433,18 @@ header {
 }
 
 /* Ícones sociais do desenvolvedor */
-.social-icons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 10px;
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
 }
 
-.social-icon img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    opacity: 0.7; /* Ícones menos chamativos */
+.social-icons a img {
+    width: 24px;
+    height: 24px;
 }
 
-.social-icon img:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0px 0px 8px #1DB954);
-    opacity: 1; /* Volta a ficar mais visível */
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .social-media a img {
-        width: 30px;
-    }
-
-    .social-icon img {
-        width: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .social-media a img {
-        width: 25px;
-    }
-
-    .social-icon img {
-        width: 20px;
-    }
+/* Estilo para os links */
+.social-media a:hover, .social-icons a:hover {
+    color: #f39c12;
 }
 
