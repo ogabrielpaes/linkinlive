@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Console log para verificar se o conteúdo foi carregado
     console.log("Rock Band Portfolio loaded!");
 
     // Efeito de animação dos elementos na tela
