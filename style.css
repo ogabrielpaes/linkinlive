@@ -51,22 +51,69 @@
     font-size: 1rem;
   }
   
-  #home {
-    position: relative;
-    height: 65vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    max-width: 100vw;
+ /* Estilo para a seção */
+#home {
+  position: relative;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+#home img {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semitransparente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0; /* Começa invisível para a animação */
+  animation: fadeIn 1.5s forwards, slideUp 1.5s forwards; /* Aplica animações */
+}
+
+/* Animação para fadeIn (aparecer suavemente) */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  
-  #home img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
+  100% {
+    opacity: 1;
   }
+}
+
+/* Animação para slideUp (subir suavemente) */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animação específica para o <h2> */
+.overlay h2 {
+  animation: fadeIn 1s ease-in, slideUp 1s ease-out;
+}
+
+/* Animação específica para o <p> */
+.overlay p {
+  animation: fadeIn 1.2s ease-in, slideUp 1.2s ease-out;
+  animation-delay: 0.2s; /* Atraso para o parágrafo aparecer um pouco depois */
+}
+
   
   .animate-title {
     opacity: 0;
@@ -108,45 +155,6 @@
     }
   }
   
-  /* Sobreposição */
-  .overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 10;
-    padding: 0 20px; 
-  }
-  /* Opacidade e transição do título e parágrafo */
-  .overlay h2,
-  .overlay p {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease; 
-  }
-  
-  .overlay h2,
-  .overlay p {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Para responsividade: ajustes em telas menores */
-  @media (max-width: 768px) {
-    #home {
-      height: 50vh; 
-    }
-  
-    .overlay h2 {
-      font-size: 1.5rem; 
-    }
-  
-    .overlay p {
-      font-size: 1rem;
-    }
-  }
   
   @media (max-width: 480px) {
     #home {
