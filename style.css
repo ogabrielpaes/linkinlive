@@ -169,12 +169,6 @@
       font-size: 0.9rem;
     }
   }
-  
-#info-banda, #integrantes {
-    padding: 50px 5%;
-    background-color: var(--cor-fundo-banda);
-}
-
   /* Estilo para a seção 'Sobre a banda' */
   #info-banda {
     padding: 50px 5%;
